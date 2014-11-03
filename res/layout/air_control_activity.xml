@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#dddd">
+    
+    
+    <RelativeLayout 
+        android:id="@+id/air_show"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_air_screen"
+        >
+       
+       	<RelativeLayout 
+       	    android:layout_width="fill_parent"
+       	    android:layout_height="fill_parent"
+       	    android:background="#555">
+        
+        <ImageButton 
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:src="@drawable/wind_amount_black_five"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"/>
+        <ImageButton 
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_air_direction_mid"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"/>
+        <ImageView 
+            android:id="@+id/vi_current_temp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_temp_21"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"/>
+        <TextView 
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:text="℃"
+            android:textStyle="italic"
+            android:layout_toRightOf="@+id/vi_current_temp"
+            android:layout_alignTop="@+id/vi_current_temp"
+             />
+        <ImageButton 
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/mode_warm_white"
+            android:background="#0000"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/vi_current_temp" />
+        
+        </RelativeLayout>
+        
+        
+    </RelativeLayout>
+    
+    
+    
+    
+    
+    <RelativeLayout 
+        android:id="@+id/air_control"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_margin="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/air_show">
+    <RelativeLayout 
+        android:layout_width="50dp"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_temp_normal">
+        <ImageButton 
+            android:id="@+id/btn_temp_up"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/up_normal"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:layout_marginTop="5dp"/>
+        <ImageButton 
+             android:id="@+id/btn_temp_down"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="5dp"
+            android:background="#0000"
+            android:src="@drawable/down_normal"/>
+    </RelativeLayout>
+    
+    
+    
+    <ImageButton 
+        android:id="@+id/btn_airpower"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/power_close"
+        android:layout_marginTop="5dp"
+        android:background="#0000"
+        android:scaleType="fitXY"/>
+    
+    <ImageButton 
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/mode_normal"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:background="#0000"/>
+   
+    
+    <ImageButton 
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/wind_vertical_horizontal_normal"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"        
+        android:background="#0000"
+        />
+    <ImageButton 
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/wind_vertical_normal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"        
+        android:background="#0000"
+        />
+    <ImageButton 
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/wind_class_normal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"        
+        android:background="#0000"
+        />
+    </RelativeLayout>
+    
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/air_control" 
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+        
+        <ImageButton 
+            android:id="@+id/air_quick_hot"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:src="@drawable/air_quick_hot"/>
+        <ImageButton 
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/air_quick_hot"
+            android:src="@drawable/air_quick_cool"/>
+        <ImageButton 
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/air_custom"
+            android:src="@drawable/air_time"/>
+        <ImageButton 
+            android:id="@+id/air_custom"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000"
+            android:scaleType="fitXY"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/air_custom"/>
+        
+        
+        
+    </RelativeLayout>
+    
+
+</RelativeLayout>

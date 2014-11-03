@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ddd"
+        android:padding="10dp">
+        <RelativeLayout 
+            android:id="@+id/tv_top"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            >
+            <ImageButton 
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/tv_power"
+                android:background="#0000"/>
+            <ImageButton 
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:background="#0000"
+                android:scaleType="fitXY"/>
+            <ImageButton 
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:background="#0000"
+                android:src="@drawable/tv_signal"/>
+            
+        </RelativeLayout>
+        
+        <RelativeLayout 
+            android:id="@+id/tv_center"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/tv_top"
+            >
+            <RelativeLayout 
+                android:layout_width="50dp"
+                android:layout_height="fill_parent">
+                <ImageView 
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/bg_ch"
+                    android:scaleType="fitXY"/>
+                <ImageButton 
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="#0000"
+                    android:scaleType="fitXY"                  
+                    android:src="@drawable/up_wifi"/>
+                <ImageButton 
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="#0000"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentBottom="true"                    
+                    android:src="@drawable/down_wifi"/>
+            </RelativeLayout>
+            <RelativeLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true">
+                <ImageButton 
+                    android:id="@+id/tv_menu_ok"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:scaleType="fitXY"
+                    android:background="#0000"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/menu_ok_normal"/>
+                <ImageButton 
+                    android:id="@+id/tv_menu_up"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:background="#0000"
+                    android:src="@drawable/menu_up_normal"
+                    android:layout_above="@+id/tv_menu_ok"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="-10dp"/>
+                <ImageButton 
+                    android:id="@+id/tv_menu_down"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:background="#0000"
+                    android:src="@drawable/menu_down_white_normal"
+                    android:layout_below="@+id/tv_menu_ok"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-10dp"/>
+                <ImageButton 
+                    android:id="@+id/tv_menu_left"
+                    android:layout_width="50dp"
+                    android:layout_height="140dp"                    
+                    android:scaleType="fitXY"
+                    android:background="#0000"
+                    android:src="@drawable/menu_left_white_normal"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/tv_menu_ok"
+                    android:layout_marginRight="-10dp"/>
+                <ImageButton 
+                    android:id="@+id/tv_menu_right"
+                    android:layout_width="50dp"
+                    android:layout_height="140dp"
+                    android:scaleType="fitXY"
+                    android:background="#0000"
+                    android:src="@drawable/menu_right_normal"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tv_menu_ok"
+                    android:layout_marginLeft="-10dp"/>
+                
+                
+            </RelativeLayout>
+            
+            <RelativeLayout 
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"   >
+                
+                <ImageView 
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_vol_wifi"
+                    android:scaleType="fitXY"/>
+                
+                <ImageButton 
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:background="#0000"
+                    android:layout_alignParentTop="true" 
+                    android:src="@drawable/up_wifi" />
+                
+                <ImageButton 
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:background="#0000"
+                    android:layout_alignParentBottom="true" 
+                    android:src="@drawable/down_wifi" 
+                    />
+                
+            </RelativeLayout>
+            
+        </RelativeLayout>
+        
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tv_center">
+            <RelativeLayout 
+                android:id="@+id/tv_botton_one"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <ImageButton 
+                android:id="@+id/tv_look_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#0000"
+                android:scaleType="fitXY"                
+                android:src="@drawable/tv_look_back"/>
+            <ImageButton 
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#0000"
+                android:scaleType="fitXY"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/tv_information"/>
+            <ImageButton 
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#0000"
+                android:scaleType="fitXY"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/tv_mute"/>
+            </RelativeLayout>
+            
+            <RelativeLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/tv_botton_one">
+            
+            <ImageButton 
+                android:id="@+id/tv_numbers"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#0000"
+                android:scaleType="fitXY"                
+                android:src="@drawable/tv_numbers"/>
+            <ImageButton 
+                android:id="@+id/tv_menu"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#0000"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="25dp"
+                android:layout_toRightOf="@+id/tv_numbers"
+                android:src="@drawable/tv_menu"/>
+           
+            <ImageButton 
+                android:id="@+id/tv_custom"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#0000"
+                android:scaleType="fitXY"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/tv_custom"/>
+             <ImageButton 
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="#0000"
+                android:scaleType="fitXY"
+                android:layout_toLeftOf="@+id/tv_custom"
+                android:layout_marginRight="25dp"
+                android:src="@drawable/tv_menu_exit"/>
+            </RelativeLayout>
+            
+            
+        </RelativeLayout>
+        
+        
+    </RelativeLayout>
+    
+
+</RelativeLayout>
