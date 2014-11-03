@@ -22,6 +22,8 @@ public class Fragment3 extends Fragment implements OnViewClickListener {
 	
 	private Button bt_ipcamera ;
 	
+	private MyImageView mv_jock ; 
+	
 	private static final String TAG = "Fragment3" ;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class Fragment3 extends Fragment implements OnViewClickListener {
 		
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		mainView = inflater.inflate(R.layout.fragment3,null);
+		
 		
 	}
 	
@@ -45,8 +48,18 @@ public class Fragment3 extends Fragment implements OnViewClickListener {
 		}
 		
 		
-		mainView.findViewById(R.id.c_joke) ;
+		mv_jock = (MyImageView)mainView.findViewById(R.id.c_joke) ;
 		
+		mv_jock.setOnClickIntent(new OnViewClickListener() {
+			
+			@Override
+			public void onViewClick(MyImageView view) {
+				// TODO Auto-generated method stub
+				Log.i(TAG, "c_joke被按下") ;
+			}
+		});
+		
+//		this.onViewClick(mv_jock);
 		
 		bt_ipcamera = (Button)mainView.findViewById(R.id.bt_camera) ;
 		
@@ -68,6 +81,15 @@ public class Fragment3 extends Fragment implements OnViewClickListener {
 	@Override
 	public void onViewClick(MyImageView view) {
 		// TODO Auto-generated method stub
+		switch (view.getId()) {
+		case R.id.c_joke:
+			Log.i(TAG, "c_joke被按下") ;
+			break;
+
+		default:
+			break;
+		}
+		
 		Log.i(TAG, "c_joke被按下") ;
 	}
 }
