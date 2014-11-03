@@ -45,7 +45,7 @@ public class Fragment4 extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		ViewGroup p = (ViewGroup)mainView.getParent();
+		ViewGroup p = (ViewGroup)mainView.getParent();  
 		
 		if(p != null)
 		{
@@ -57,7 +57,7 @@ public class Fragment4 extends Fragment {
 //	    使用BaseAdapter添加数据
 	    adapter=new MyAdapter(getActivity(), data, imgId);
 	    gridView.setAdapter(adapter);
-	    
+	    //设置事件监听响应
 	   gridView.setOnItemClickListener(new OnItemClickListener() {
 
 		@Override
@@ -71,6 +71,7 @@ public class Fragment4 extends Fragment {
 				
 			case 1 :
 				getActivity().startActivity(new Intent(getActivity() , TVActivity.class));
+				break ;
 				
 			case 2 :
 				getActivity().startActivity(new Intent(getActivity() , Switch4Activity.class));

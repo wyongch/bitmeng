@@ -40,6 +40,7 @@ public class MainActivity extends FragmentActivity{
 		// TODO 自动生成的方法存根
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_activity);
+		setTheme(0);
 		
 		mTabPager = (ViewPager)findViewById(R.id.tabpager);
         mTabPager.setOnPageChangeListener(new MyOnPageChangeListener());
