@@ -3,6 +3,6 @@
     <style name="AppLaucherTheme" >  
     	<item name="android:windowNoTitle">true</item>  
 <!--     	<item name="android:windowBackground">@drawable/splash</item>   -->
-<!-- 	<item name="android:windowBackground">@styles/color_white</item> -->
+<!-- 	<item name="android:windowBackground">"#dddd"</item> -->
     </style>  
 </resources>

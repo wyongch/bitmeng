@@ -35,7 +35,7 @@ public class Fragment3 extends Fragment implements OnViewClickListener {
 		
 		
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

@@ -24,8 +24,8 @@ public class Switch4Activity extends Activity implements  OnCheckedChangeListene
 	private static final String verification = "G0001@123123@1@APP1m" ;
 	private OutputStream mOutput ;
 	private InputStream mInput ;
-	private static final String[] switch4on = {"bt22111m" ,"bt22111m", "bt22111m","bt22111m"} ;
-	private static final String[] switch4off = {"bt22101m" ,"bt22101m", "bt22101m", "bt22101m"} ;
+	private static final String[] switch4on = {"bt230000000310m" ,"bt240000000400m", "bt22111m","bt22111m"} ;
+	private static final String[] switch4off = {"bt230000000300m" ,"bt240000000400m", "bt22101m", "bt22101m"} ;
 	private static String messageContent="" ;
 	
 	
@@ -145,6 +145,31 @@ public class Switch4Activity extends Activity implements  OnCheckedChangeListene
 			
 			break;
 		case R.id.switch4_two:
+			
+			if(switch4_two.isChecked()){
+				messageContent = switch4on[1] ;
+				try {
+					mOutput.write(messageContent.getBytes()) ;
+					Log.i(TAG, "设置打开开关控制命令成功") ;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					Log.i(TAG, "设置打开开关控制命令失败") ;
+				}
+				
+			}else {
+				messageContent = switch4off[1] ;
+				try {
+					mOutput.write(messageContent.getBytes()) ;
+					Log.i(TAG, "设置关闭开关控制命令成功") ;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					Log.i(TAG, "设置关闭开关控制命令失败") ;
+				}
+			}
+			
+			
 			
 			break ;
 		case R.id.switch4_three:

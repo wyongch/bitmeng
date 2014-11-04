@@ -3,5 +3,23 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    
+    
+<!--     fragment_index 中的尺寸 -->
+<!-- 	index_info中的ImageButton -->
+	<dimen name="index_info_imagebutton_width">25dp</dimen>
+	<dimen name="index_info_imagebutton_height">25dp</dimen>
+	<dimen name="index_info_imagebutton_magrinleft">5dp</dimen>
+	<dimen name="index_info_imagebutton_magrinright">5dp</dimen>
+	
+<!-- 	index_scenes中的ImageButton -->
+	<dimen name="index_scenes_imagebutton_width">120dp</dimen>
+	<dimen name="index_scenes_imagebutton_height">120dp</dimen>
+	<dimen name="index_scenes_imagebutton_marginleft">18dp</dimen>
+	<dimen name="index_scenes_imagebutton_marginright">18dp</dimen>
+	<dimen name="index_scenes_imagebutton_margintop">2dp</dimen>
+	<dimen name="index_scenes_imagebutton_marginbottom">2dp</dimen>
+	
+    
 
 </resources>

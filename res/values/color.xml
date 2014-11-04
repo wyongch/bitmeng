@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--     fragment_index 中的颜色参数 -->
+    <color name="index_background">#FFFFFF</color>
+    
+    <!--     fragment_index 中info的imagebutton的颜色参数 -->
+    <color name="index_info_imagebutton_background">#FFFFFF</color>
+    
+<!--     fragment_index 中scenes的imagebutton的颜色参数 -->
+    <color name="index_scenes_imagebutton_background">#FFFFFF</color>
+    
+    
+    
+    
+</resources>
