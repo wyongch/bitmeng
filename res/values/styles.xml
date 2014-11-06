@@ -2,7 +2,7 @@
 
     <style name="AppLaucherTheme" >  
     	<item name="android:windowNoTitle">true</item>  
-<!--     	<item name="android:windowBackground">@drawable/splash</item>   -->
+<!--     	<item name="android:windowBackground">@drawable/guidepage_one</item>   -->
 <!-- 	<item name="android:windowBackground">"#dddd"</item> -->
     </style>  
 </resources>

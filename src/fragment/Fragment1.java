@@ -20,7 +20,7 @@ public class Fragment1 extends Fragment {
 		super.onCreate(savedInstanceState);
 		
 		LayoutInflater inflater = getActivity().getLayoutInflater();
-		mainView = inflater.inflate(R.layout.fragment_index,null);
+		mainView = inflater.inflate(R.layout.index_fragment,null);
 		
 	}
 	
