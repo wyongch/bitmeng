@@ -11,6 +11,7 @@ public interface SocketInterface {
 	public abstract void ExecuteVerify(String _verifyMSG) ;
 	public abstract Boolean IsPassVerify() throws SocketRuleException ;
 	public abstract OutputStream getSocketOutPutStream() ;
+//	public abstract OutputStream getSocketOutPutStream() ;
 	
 
 }

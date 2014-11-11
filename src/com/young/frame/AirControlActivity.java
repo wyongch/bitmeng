@@ -1,5 +1,11 @@
 package com.young.frame;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.lang.ref.WeakReference;
+
+import com.wayland.global.Command;
+
 import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
@@ -14,16 +20,36 @@ import android.widget.Toast;
 
 public class AirControlActivity extends Activity implements OnClickListener {
 	
+	private final static String TAG = "AIRCONTROLACTIVITY" ;
 	private ImageButton btn_Power ;
 	private ImageButton btn_temp_up ;
 	private ImageButton btn_temp_down ;
 	private ImageView vi_curren_temp ;
 	private Vibrator mVibrator ;
+	private OutputStream mOutPut ;
 	private int[] image_temp= new int[]{R.drawable.img_temp_16 ,R.drawable.img_temp_17 ,R.drawable.img_temp_18 ,R.drawable.img_temp_19 ,R.drawable.img_temp_20 ,R.drawable.img_temp_21 ,
 			R.drawable.img_temp_22 ,R.drawable.img_temp_23 ,R.drawable.img_temp_24 ,R.drawable.img_temp_25 ,R.drawable.img_temp_26 ,R.drawable.img_temp_27 ,R.drawable.img_temp_28 ,
 			R.drawable.img_temp_29 ,R.drawable.img_temp_30 ,R.drawable.img_temp_31 } ;
 	
 	int currentid = 0 ;
+	
+	
+	//控制指令
+	private static final String Air_Power_on = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_Open+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	private static final String Air_Power_off = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_Close+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	//温度控制
+	private static final String Air_Temp_Up = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_TEMP_I+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	private static final String Air_Temp_Down = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_TEMP_R+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	//空调模式
+	private static final String Air_Mode__Cool = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_Air_Cool+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	private static final String Air_Mode__Heat = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_Air_HEAT+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	//风速
+	private static final String Air_Type_Windspeed = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_Windspeed+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	//摆风
+	private static final String Air_Type_Windshifty = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_Windshifty+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	//定时
+	private static final String Air_Type_SetTime = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Air+Command.Dev_ID_SIZE+Command.Cmd_Type_Time+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	
 	
 	
 	private void findView() {
@@ -47,6 +73,11 @@ public class AirControlActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_air_control);
 		findView();
 		mVibrator = (Vibrator)getApplication().getSystemService(Service.VIBRATOR_SERVICE) ;
+		
+		LoginActivity mLoginActivity = new LoginActivity() ;
+		WeakReference reference = new WeakReference(mLoginActivity) ;
+		mOutPut = ((LoginActivity)reference.get()).getSocketOutPutStream() ;
+		
 	}
 
 
@@ -60,8 +91,16 @@ public class AirControlActivity extends Activity implements OnClickListener {
 			mVibrator.vibrate(200);
 			
 //			startActivity(new Intent(this , TVActivity.class));
+			try {
+				mOutPut.write(Air_Power_on.getBytes());
+				Log.i(TAG, "发送空调控制指令成功") ;
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				Log.i(TAG, "发送空调控制指令失败") ;
+				e.printStackTrace();
+			}
 			
-			Log.i("wyongch", "11111111111") ;
+			
 			break ;
 		case R.id.btn_temp_up :
 			mVibrator.vibrate(200);

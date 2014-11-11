@@ -6,7 +6,11 @@ import java.io.OutputStream;
 import java.lang.ref.WeakReference;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.ByteBuffer;
 
+import org.apache.http.util.ByteArrayBuffer;
+
+import com.wayland.global.Command;
 import com.wayland.internet.SocketInterface;
 import com.wayland.internet.SocketInterfaceImp;
 import com.wayland.internet.SocketRuleException;
@@ -29,17 +33,40 @@ public class Switch4Activity extends Activity implements  OnCheckedChangeListene
 //	private static final String verification = "G0001@123123@1@APP1m" ;
 	private OutputStream mOutput ;
 	private InputStream mInput ;
-	private static final String[] switch4on = {"bt230000000310m" ,"bt240000000400m", "bt22111m","bt22111m"} ;
-	private static final String[] switch4off = {"bt230000000300m" ,"bt240000000400m", "bt22101m", "bt22101m"} ;
+//	private static final String[] switch4on = {"bt230000000310m" ,"bt240000000400m", "bt22111m","bt22111m"} ;
+//	private static final String[] switch4off = {"bt230000000300m" ,"bt240000000400m", "bt22101m", "bt22101m"} ;
+	
+		
 	private static String messageContent="" ;
 	private OutputStream out ;
+	
+//	byte[] comment ={ Command.Msg_Type_Ctr ,Command.Dev_Type_One_SW, Command.Dev_ID_SIZE, Command.Cmd_Type_Open, Command.Cmd_Ctr_Object_N1  } ;
+	//一键开关
+	private static final String switch_one_on = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_One_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Open+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	private static final String switch_one_off = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_One_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Close+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	
+	//四键开关
+	private static final String switch4one_on = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Open+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	private static final String switch4two_on = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Open+Command.Cmd_Ctr_Object_N2+Command.Msg_Foot ;
+	private static final String switch4three_on = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Open+Command.Cmd_Ctr_Object_N3+Command.Msg_Foot ;
+	private static final String switch4four_on = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Open+Command.Cmd_Ctr_Object_N4+Command.Msg_Foot ;
+	
+	private static final String switch4one_off = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Close+Command.Cmd_Ctr_Object_N1+Command.Msg_Foot ;
+	private static final String switch4two_off = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Close+Command.Cmd_Ctr_Object_N2+Command.Msg_Foot ;
+	private static final String switch4three_off = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Close+Command.Cmd_Ctr_Object_N3+Command.Msg_Foot ;
+	private static final String switch4four_off = Command.Msg_Head+Command.Msg_Type_Ctr+Command.Dev_Type_Four_SW+Command.Dev_ID_SIZE+Command.Cmd_Type_Close+Command.Cmd_Ctr_Object_N4+Command.Msg_Foot ;
+	
+	
+	private static final String[] switch4on = {switch4one_on ,switch4two_on, switch4three_on, switch4four_on} ;
+	private static final String[] switch4off = {switch4one_off ,switch4two_off, switch4three_off, switch4four_off} ;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)  {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.switch4_activity);
-		
+//		String commantMsg = comment.toString() + Command.BYT_DEV_ID_SIZE ;
 		//自定义findView
 		findView() ;
 //		Socket socket = new Socket() ;
@@ -51,13 +78,15 @@ public class Switch4Activity extends Activity implements  OnCheckedChangeListene
 		LoginActivity login = new LoginActivity() ;
 		
 		WeakReference wy = new WeakReference(login);
-		out = ((LoginActivity)wy.get()).getSocketOutPutStream() ;
-		try {
-			out.write("nissssss".getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mOutput = ((LoginActivity)wy.get()).getSocketOutPutStream() ;
+		
+		
+//		try {
+//			out.write(comment);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 //		SocketInterface mySockt = new SocketInterfaceImp() ;
 //		
