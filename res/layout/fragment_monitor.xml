@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_activity_bg"
+    android:orientation="vertical" >
+<!--     android:gravity="center_horizontal"> -->
+
+<!-- 	 <RelativeLayout -->
+<!--         android:id="@+id/main_top" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="55dp" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:orientation="vertical" -->
+<!--         android:background="@drawable/top_bar" -->
+<!--         >             -->
+<!--     </RelativeLayout> -->
+<!--      <LinearLayout -->
+<!--         android:id="@+id/title" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="55dp" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:paddingTop="2dp" -->
+<!--         android:gravity="center" -->
+<!--         > -->
+<!--         <TextView -->
+<!--             android:layout_width="match_parent" -->
+<!--             android:layout_height="55dp" -->
+<!--             android:text="监控" -->
+<!--             android:textColor="#000" -->
+<!--             android:textSize="25sp"  -->
+<!--             android:background="@drawable/top_bar" -->
+<!--             android:gravity="center_horizontal|center_vertical"/>              -->
+    
+
+    
+<!--     <LinearLayout  -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:orientation="vertical" -->
+<!--         android:layout_marginTop="16dp"> -->
+<!--         <ImageButton  -->
+<!--             android:id="@+id/monitor_btn_camera" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_gravity="center_horizontal" -->
+<!--             android:background="#0000" -->
+<!--             android:src="@drawable/monitor_camera" -->
+<!--             android:scaleType="fitXY"/> -->
+<!--         <TextView  -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_gravity="center_horizontal" -->
+<!--             android:text="智能监控摄像头"/> -->
+        
+<!--     </LinearLayout> -->
+    
+<!--     <LinearLayout  -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:background="@drawable/monitor_infrared_bg" -->
+        
+<!--         android:orientation="horizontal" -->
+<!--         > -->
+<!--         <ImageButton  -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:src="@drawable/monitor_infrared_title_ico" -->
+<!--             android:layout_gravity="center_vertical" -->
+<!--             android:background="#0000" -->
+<!--             android:scaleType="matrix"/> -->
+<!--         <TextView  -->
+<!--             android:layout_marginLeft="10dp" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_gravity="center_vertical" -->
+<!--             android:text="人体探测"/> -->
+<!--     </LinearLayout> -->
+    
+<!--     <ListView  -->
+<!--         android:id="@+id/monitor_camera_list" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_gravity="center_horizontal"  > -->
+        
+        
+<!--     </ListView> -->
+<!--     <LinearLayout  -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:background="@drawable/monitor_smoke_bg" -->
+<!--         android:orientation="horizontal" -->
+<!--         > -->
+<!--         <ImageButton  -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:src="@drawable/monitor_smoke_title_ico" -->
+<!--             android:layout_gravity="center_vertical" -->
+<!--             android:background="#0000" -->
+<!--             android:scaleType="matrix"/> -->
+<!--         <TextView  -->
+<!--             android:layout_marginLeft="10dp" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_gravity="center_vertical" -->
+<!--             android:text="危险气体探测"/> -->
+<!--     </LinearLayout> -->
+    
+<!--     <ListView  -->
+<!--         android:id="@+id/monitor_smoke_list" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_gravity="center_horizontal"  > -->
+        
+        
+<!--     </ListView> -->
+    
+
+</LinearLayout>

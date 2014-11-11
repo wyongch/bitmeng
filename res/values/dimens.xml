@@ -13,8 +13,8 @@
 	<dimen name="index_info_imagebutton_magrinright">5dp</dimen>
 	
 <!-- 	index_scenes中的ImageButton -->
-	<dimen name="index_scenes_imagebutton_width">120dp</dimen>
-	<dimen name="index_scenes_imagebutton_height">120dp</dimen>
+	<dimen name="index_scenes_imagebutton_width">90dp</dimen>
+	<dimen name="index_scenes_imagebutton_height">90dp</dimen>
 	<dimen name="index_scenes_imagebutton_marginleft">18dp</dimen>
 	<dimen name="index_scenes_imagebutton_marginright">18dp</dimen>
 	<dimen name="index_scenes_imagebutton_margintop">2dp</dimen>

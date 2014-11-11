@@ -64,7 +64,7 @@
             android:name="com.young.frame.MainActivity">
         </activity>
         <activity 
-            android:name="com.young.frame.AirControl"></activity>
+            android:name="com.young.frame.AirControlActivity"></activity>
         <activity 
             android:name="com.young.frame.TVActivity"></activity>
         <activity 

@@ -3,8 +3,13 @@ package com.young.frame;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.ref.WeakReference;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import com.wayland.internet.SocketInterface;
+import com.wayland.internet.SocketInterfaceImp;
+import com.wayland.internet.SocketRuleException;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,15 +24,15 @@ public class Switch4Activity extends Activity implements  OnCheckedChangeListene
 	private static final String TAG = "Switch4Activity" ;
 	private ToggleButton switch4_one , switch4_two , switch4_three , switch4_four ;
 	private Socket mSocket ;
-	private static final String HOST ="182.92.150.143" ;
-	private static final int PORT = 8480  ;
-	private static final String verification = "G0001@123123@1@APP1m" ;
+//	private static final String HOST ="182.92.150.143" ;
+//	private static final int PORT = 8480  ;
+//	private static final String verification = "G0001@123123@1@APP1m" ;
 	private OutputStream mOutput ;
 	private InputStream mInput ;
 	private static final String[] switch4on = {"bt230000000310m" ,"bt240000000400m", "bt22111m","bt22111m"} ;
 	private static final String[] switch4off = {"bt230000000300m" ,"bt240000000400m", "bt22101m", "bt22101m"} ;
 	private static String messageContent="" ;
-	
+	private OutputStream out ;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)  {
@@ -37,9 +42,37 @@ public class Switch4Activity extends Activity implements  OnCheckedChangeListene
 		
 		//自定义findView
 		findView() ;
+//		Socket socket = new Socket() ;
+//		private  Switch4Activity loginActivity ;
+//		private WeakReference<Activity> mActivity ;
+//		mActivity = new WeakReference<Activity>(loginActivity) ;
 		
 		
-		new Thread(new Runnable() {
+		LoginActivity login = new LoginActivity() ;
+		
+		WeakReference wy = new WeakReference(login);
+		out = ((LoginActivity)wy.get()).getSocketOutPutStream() ;
+		try {
+			out.write("nissssss".getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		SocketInterface mySockt = new SocketInterfaceImp() ;
+//		
+//		try {
+//			mySockt.ConnectSocket(HOST, PORT) ;
+//			mySockt.IsPassVerify(verification) ;
+//		} catch (SocketRuleException e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//			Log.i(TAG, "没有通过验证") ;
+//		}
+		
+		
+		
+	/*	new Thread(new Runnable() {
 			
 			@Override
 			public void run() {
@@ -92,7 +125,7 @@ public class Switch4Activity extends Activity implements  OnCheckedChangeListene
 			}
 		}).start() ;
 		
-		
+		*/
 	}
 
 	private void findView() {

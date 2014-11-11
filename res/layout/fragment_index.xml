@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+
+    android:background="@color/index_background" >
+    <!--     android:background="@drawable/main_activity_bg"> -->
+    <RelativeLayout 
+        android:id="@+id/index_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/index_top_bg"
+            android:scaleType="fitXY"/>
+        
+    </RelativeLayout>
+    <RelativeLayout 
+        android:id="@+id/index_ad"
+        android:layout_width="fill_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/index_top">
+
+        <ImageView
+            android:id="@+id/index_iv_ad"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            
+            android:src="@drawable/index_iv_ad"
+            android:scaleType="fitXY" />
+        
+        
+
+    </RelativeLayout>
+    
+    <LinearLayout 
+        android:id="@+id/index_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/index_ad"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="智能家居状态信息"
+            android:textSize="16dp"
+            
+            />
+        <ImageButton 
+            android:id="@+id/index_ib_out"
+            android:layout_width="@dimen/index_info_imagebutton_width"
+            android:layout_height="@dimen/index_info_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
+            android:layout_marginRight="@dimen/index_info_imagebutton_magrinright"
+            android:scaleType="fitXY"
+            android:background="@color/index_info_imagebutton_background"
+            android:src="@drawable/index_ib_out"/>
+        <ImageButton 
+            android:id="@+id/index_ib_fire"
+            android:layout_width="@dimen/index_info_imagebutton_width"
+            android:layout_height="@dimen/index_info_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
+            android:layout_marginRight="@dimen/index_info_imagebutton_magrinright"
+            android:scaleType="fitXY"
+            android:background="@color/index_info_imagebutton_background"
+            android:src="@drawable/index_ib_fire"/>
+        <ImageButton 
+            android:id="@+id/index_ib_cloud"
+            android:layout_width="@dimen/index_info_imagebutton_width"
+            android:layout_height="@dimen/index_info_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
+            android:layout_marginRight="@dimen/index_info_imagebutton_magrinright"
+            android:scaleType="fitXY"
+            android:background="@color/index_info_imagebutton_background"
+            android:src="@drawable/index_ib_cloud"/>
+        <ImageButton 
+            android:id="@+id/index_ib_alarm"
+            android:layout_width="@dimen/index_info_imagebutton_width"
+            android:layout_height="@dimen/index_info_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
+            android:layout_marginRight="@dimen/index_info_imagebutton_magrinright"
+            android:scaleType="fitXY"
+            android:background="@color/index_info_imagebutton_background"
+            android:src="@drawable/index_ib_alarm"/>
+        <ImageButton 
+            android:id="@+id/index_ib_other"
+            android:background="@color/index_info_imagebutton_background"
+            android:layout_width="@dimen/index_info_imagebutton_width"
+            android:layout_height="@dimen/index_info_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
+            android:layout_marginRight="@dimen/index_info_imagebutton_magrinright"
+            android:scaleType="fitXY"
+            android:src="@drawable/index_ib_other"/>
+        
+    </LinearLayout>
+    
+    <RelativeLayout
+        android:id="@+id/index_scenes"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_below="@+id/index_info"
+        android:layout_centerHorizontal="true">
+        
+        <LinearLayout 
+            android:id="@+id/index_ib_sleep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        
+        <ImageButton
+            
+            android:layout_width="@dimen/index_scenes_imagebutton_width"
+            android:layout_height="@dimen/index_scenes_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"
+            android:layout_marginRight="@dimen/index_scenes_imagebutton_marginright"
+            android:layout_marginTop="@dimen/index_scenes_imagebutton_margintop"
+            android:layout_marginBottom="@dimen/index_scenes_imagebutton_marginbottom"
+            android:background="@color/index_scenes_imagebutton_background"
+            
+            android:src="@drawable/index_ib_sleep"
+            android:scaleType="fitXY" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="睡觉"
+            android:textSize="22dp"/>
+        
+        
+        </LinearLayout>
+        
+         <LinearLayout 
+            android:id="@+id/index_ib_getup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/index_ib_sleep">
+        
+        <ImageButton
+            
+            android:layout_width="@dimen/index_scenes_imagebutton_width"
+            android:layout_height="@dimen/index_scenes_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"
+            android:layout_marginRight="@dimen/index_scenes_imagebutton_marginright"
+            android:layout_marginTop="@dimen/index_scenes_imagebutton_margintop"
+            android:layout_marginBottom="@dimen/index_scenes_imagebutton_marginbottom"
+            android:background="@color/index_scenes_imagebutton_background"
+            android:src="@drawable/index_ib_getup"
+            android:scaleType="fitXY" 
+            />
+        
+         <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="起床"
+            android:textSize="22dp"/>
+           </LinearLayout>
+         <LinearLayout 
+            android:id="@+id/index_ib_outdoor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/index_ib_sleep">
+        <ImageButton
+            android:id="@+id/index_ib_outdoor"
+            android:layout_width="@dimen/index_scenes_imagebutton_width"
+            android:layout_height="@dimen/index_scenes_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"
+            android:layout_marginRight="@dimen/index_scenes_imagebutton_marginright"
+            android:layout_marginTop="@dimen/index_scenes_imagebutton_margintop"
+            android:layout_marginBottom="@dimen/index_scenes_imagebutton_marginbottom"
+            android:background="@color/index_scenes_imagebutton_background"
+            android:src="@drawable/index_ib_gohome"
+            android:scaleType="fitXY" 
+           />
+        
+         <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="外出"
+            android:textSize="22dp"/>
+           </LinearLayout>
+          <LinearLayout 
+            android:id="@+id/index_ib_gohome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/index_ib_sleep"
+            android:layout_toRightOf="@+id/index_ib_outdoor">
+        <ImageButton
+            android:id="@+id/index_ib_gohome"
+            android:layout_width="@dimen/index_scenes_imagebutton_width"
+            android:layout_height="@dimen/index_scenes_imagebutton_height"
+            android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"
+            android:layout_marginRight="@dimen/index_scenes_imagebutton_marginright"
+            android:layout_marginTop="@dimen/index_scenes_imagebutton_margintop"
+            android:layout_marginBottom="@dimen/index_scenes_imagebutton_marginbottom"
+            android:background="@color/index_scenes_imagebutton_background"
+            android:src="@drawable/index_ib_outdoor"
+            android:scaleType="fitXY" 
+            />
+         <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="回家"
+            android:textSize="22dp"/>
+         </LinearLayout>
+        
+        
+    </RelativeLayout>
+    
+    
+
+</RelativeLayout>

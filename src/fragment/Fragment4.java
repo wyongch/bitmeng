@@ -15,7 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
-import com.young.frame.AirControl;
+import com.young.frame.AirControlActivity;
 import com.young.frame.R;
 import com.young.frame.Switch4Activity;
 import com.young.frame.TVActivity;
@@ -66,7 +66,7 @@ public class Fragment4 extends Fragment {
 			// TODO Auto-generated method stub
 			switch (position) {
 			case 0:
-				getActivity().startActivity(new Intent(getActivity() , AirControl.class));
+				getActivity().startActivity(new Intent(getActivity() , AirControlActivity.class));
 				break;
 				
 			case 1 :

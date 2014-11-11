@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import fragment.EquipmentFragment;
 import fragment.Fragment1;
 import fragment.Fragment2;
 import fragment.Fragment3;
@@ -27,7 +28,8 @@ public class MainActivity extends FragmentActivity{
 	//4个tab页分别使用一个Fragment
     private Fragment1 mfragment1;
     private Fragment2 mfragment2;
-    private Fragment3 mfragment3;
+    private EquipmentFragment mEquipmentFragment ;
+//    private Fragment3 mfragment3;
 //    private Fragment4 mfragment4;
     private MonitorFragment mMonitorFragment ;
     //存放fragment的Arraylist
@@ -67,15 +69,18 @@ public class MainActivity extends FragmentActivity{
          */
         mfragment1 = new Fragment1();
 		mfragment2 = new Fragment2();
-		mfragment3 = new Fragment3();
+		
+//		mfragment3 = new Fragment3();
+		mEquipmentFragment = new EquipmentFragment() ;
 //		mfragment4 = new Fragment4();
 		mMonitorFragment = new MonitorFragment() ;
 		
 		fragmentList = new ArrayList<Fragment>();
 		fragmentList.add(mfragment1);
 		fragmentList.add(mfragment2);
-		fragmentList.add(mfragment3);
+//		fragmentList.add(mfragment3);
 //		fragmentList.add(mfragment4);
+		fragmentList.add(mEquipmentFragment) ;
 		fragmentList.add(mMonitorFragment);
 		
 		mTabPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(),fragmentList));	

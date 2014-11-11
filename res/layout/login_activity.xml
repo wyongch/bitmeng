@@ -2,23 +2,24 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_activity_bg" >
+    android:background="@drawable/login_activity_bg" >
         
-   <ImageView android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/title"
+   <ImageView android:layout_width="150dp"
+       android:layout_height="150dp"
+       android:background="@drawable/logo"
        android:layout_gravity="center"
        android:layout_marginTop="20dp"
-       android:layout_marginBottom="70dp"/>
+       android:layout_marginBottom="70dp"
+       android:scaleType="fitXY"/>
    
-   <TextView android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_gravity="center"
-       android:text="请登录"
-       android:textSize="30sp"
-       android:textColor="#33ccff"
-       android:layout_marginBottom="20dp"
-       />
+<!--    <TextView android:layout_width="wrap_content" -->
+<!--        android:layout_height="wrap_content" -->
+<!--        android:layout_gravity="center" -->
+<!--        android:text="请登录" -->
+<!--        android:textSize="30sp" -->
+<!--        android:textColor="#33ccff" -->
+<!--        android:layout_marginBottom="20dp" -->
+<!--        /> -->
    
    <EditText android:id="@+id/username"
        android:layout_width="300dp"
@@ -26,6 +27,10 @@
        android:layout_gravity="center"
        android:drawableLeft="@drawable/username"
        android:layout_marginBottom="20dp"
+       android:background="@drawable/edit_text_rounded_bg"
+       android:paddingTop="5dp"
+       android:paddingBottom="5dp"
+       android:paddingLeft="15dp"
        />
    
    <EditText android:id="@+id/password"
@@ -34,6 +39,10 @@
        android:layout_gravity="center"
        android:drawableLeft="@drawable/password"
        android:layout_marginBottom="50dp"
+       android:background="@drawable/edit_text_rounded_bg"
+       android:paddingTop="5dp"
+       android:paddingBottom="5dp"
+       android:paddingLeft="15dp"
        />
    
    <LinearLayout android:orientation="horizontal"
@@ -45,18 +54,37 @@
            android:layout_height="0dp"
            android:layout_weight="1"/>
        
-       <ImageButton android:id="@+id/loginButton"
+        <Button 
+            android:id="@+id/loginButton"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:background="@drawable/login"
+           android:background="@drawable/login_activity_button_rounded_bg"
+           android:text="登 录"
+           android:textSize="24sp"
+           android:textColor="#fff"
+           android:src="@drawable/login" 
            android:layout_marginRight="40dp"
+          android:paddingLeft="15dp"
+          android:paddingRight="15dp"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          
        />
        
-       <ImageButton android:id="@+id/enrollButton"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:background="@drawable/enroll"
-       />
+<!--        <ImageButton android:id="@+id/loginButton" -->
+<!--            android:layout_width="wrap_content" -->
+<!--            android:layout_height="wrap_content" -->
+<!--            android:background="#0000" -->
+<!--            android:src="@drawable/login"  -->
+<!--            android:layout_marginRight="40dp" -->
+           
+<!--        /> -->
+       
+<!--        <ImageButton android:id="@+id/enrollButton" -->
+<!--            android:layout_width="wrap_content" -->
+<!--            android:layout_height="wrap_content" -->
+<!--            android:background="@drawable/enroll" -->
+<!--        /> -->
        
        <TextView android:layout_width="0dp"
            android:layout_height="0dp"
