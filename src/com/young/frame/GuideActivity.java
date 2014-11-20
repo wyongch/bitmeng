@@ -38,9 +38,9 @@ public class GuideActivity extends Activity{
         pageViews = new ArrayList<View>();    
         pageViews.add(inflater.inflate(R.layout.guidepage1, null));  
         pageViews.add(inflater.inflate(R.layout.guidepage2, null));
-        pageViews.add(inflater.inflate(R.layout.guidepage3, null));
-        pageViews.add(inflater.inflate(R.layout.guidepage4, null));
-        pageViews.add(inflater.inflate(R.layout.guidepage5, null));
+//        pageViews.add(inflater.inflate(R.layout.guidepage3, null));
+//        pageViews.add(inflater.inflate(R.layout.guidepage4, null));
+//        pageViews.add(inflater.inflate(R.layout.guidepage5, null));
         
         imageViews = new ImageView[pageViews.size()];
         

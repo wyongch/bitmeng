@@ -1,29 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/switch_activity_bg"
+    android:gravity="center" >
     
     <ToggleButton 
-        android:id="@+id/switch4_one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/switch4_one"        
+        android:layout_width="@dimen/switch4_activity_switch_width"
+        android:layout_height="@dimen/switch4_activity_switch_height"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/switch4_toggle_selector"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        />
     <ToggleButton 
         android:id="@+id/switch4_two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/switch4_activity_switch_width"
+        android:layout_height="@dimen/switch4_activity_switch_height"
         android:layout_toRightOf="@+id/switch4_one"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/switch4_toggle_selector"
         />
     <ToggleButton 
         android:id="@+id/switch4_three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/switch4_one"/>
+        android:layout_width="@dimen/switch4_activity_switch_width"
+        android:layout_height="@dimen/switch4_activity_switch_height"
+        android:layout_below="@+id/switch4_one"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/switch4_toggle_selector"
+        android:layout_marginRight="10dp"/>
     <ToggleButton 
         android:id="@+id/switch4_four"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+       	android:layout_width="@dimen/switch4_activity_switch_width"
+        android:layout_height="@dimen/switch4_activity_switch_height"
         android:layout_below="@+id/switch4_one"
-        android:layout_toRightOf="@+id/switch4_three"/>
+        android:layout_toRightOf="@+id/switch4_three"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/switch4_toggle_selector"/>
     
 
 </RelativeLayout>

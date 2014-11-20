@@ -173,19 +173,20 @@
         >
         
         <ImageButton 
-            android:id="@+id/air_quick_hot"
+            android:id="@+id/air_mode_heat"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#0000"
             android:scaleType="fitXY"
             android:src="@drawable/air_quick_hot"/>
         <ImageButton 
+            android:id="@+id/air_mode_cool"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#0000"
             android:scaleType="fitXY"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/air_quick_hot"
+            android:layout_toRightOf="@+id/air_mode_heat"
             android:src="@drawable/air_quick_cool"/>
         <ImageButton 
             android:layout_width="50dp"

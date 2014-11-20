@@ -50,7 +50,7 @@
             
             />
         <ImageButton 
-            android:id="@+id/index_ib_out"
+            android:id="@+id/index_btn_out"
             android:layout_width="@dimen/index_info_imagebutton_width"
             android:layout_height="@dimen/index_info_imagebutton_height"
             android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
@@ -59,7 +59,7 @@
             android:background="@color/index_info_imagebutton_background"
             android:src="@drawable/index_ib_out"/>
         <ImageButton 
-            android:id="@+id/index_ib_fire"
+            android:id="@+id/index_btn_fire"
             android:layout_width="@dimen/index_info_imagebutton_width"
             android:layout_height="@dimen/index_info_imagebutton_height"
             android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
@@ -68,7 +68,7 @@
             android:background="@color/index_info_imagebutton_background"
             android:src="@drawable/index_ib_fire"/>
         <ImageButton 
-            android:id="@+id/index_ib_cloud"
+            android:id="@+id/index_btn_cloud"
             android:layout_width="@dimen/index_info_imagebutton_width"
             android:layout_height="@dimen/index_info_imagebutton_height"
             android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
@@ -77,7 +77,7 @@
             android:background="@color/index_info_imagebutton_background"
             android:src="@drawable/index_ib_cloud"/>
         <ImageButton 
-            android:id="@+id/index_ib_alarm"
+            android:id="@+id/index_btn_alarm"
             android:layout_width="@dimen/index_info_imagebutton_width"
             android:layout_height="@dimen/index_info_imagebutton_height"
             android:layout_marginLeft="@dimen/index_info_imagebutton_magrinleft"
@@ -86,7 +86,7 @@
             android:background="@color/index_info_imagebutton_background"
             android:src="@drawable/index_ib_alarm"/>
         <ImageButton 
-            android:id="@+id/index_ib_other"
+            android:id="@+id/index_btn_other"
             android:background="@color/index_info_imagebutton_background"
             android:layout_width="@dimen/index_info_imagebutton_width"
             android:layout_height="@dimen/index_info_imagebutton_height"
@@ -111,7 +111,7 @@
             android:orientation="vertical">
         
         <ImageButton
-            
+            android:id="@+id/index_btn_sleep"
             android:layout_width="@dimen/index_scenes_imagebutton_width"
             android:layout_height="@dimen/index_scenes_imagebutton_height"
             android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"
@@ -141,7 +141,7 @@
             android:layout_toRightOf="@+id/index_ib_sleep">
         
         <ImageButton
-            
+            android:id="@+id/index_btn_getup"
             android:layout_width="@dimen/index_scenes_imagebutton_width"
             android:layout_height="@dimen/index_scenes_imagebutton_height"
             android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"
@@ -168,7 +168,7 @@
             android:orientation="vertical"
             android:layout_below="@+id/index_ib_sleep">
         <ImageButton
-            android:id="@+id/index_ib_outdoor"
+            android:id="@+id/index_btn_outdoor"
             android:layout_width="@dimen/index_scenes_imagebutton_width"
             android:layout_height="@dimen/index_scenes_imagebutton_height"
             android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"
@@ -196,7 +196,7 @@
             android:layout_below="@+id/index_ib_sleep"
             android:layout_toRightOf="@+id/index_ib_outdoor">
         <ImageButton
-            android:id="@+id/index_ib_gohome"
+            android:id="@+id/index_btn_gohome"
             android:layout_width="@dimen/index_scenes_imagebutton_width"
             android:layout_height="@dimen/index_scenes_imagebutton_height"
             android:layout_marginLeft="@dimen/index_scenes_imagebutton_marginleft"

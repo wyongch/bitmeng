@@ -2,6 +2,7 @@ package com.wayland.internet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -23,6 +24,7 @@ public class SocketInterfaceImp implements SocketInterface {
 	private Socket socket;
 	private String verifyMSG;
 	private OutputStream outPutStream;
+	private InputStream inputStream;
 	private String verifyMessage = "";
 	private BufferedReader bufferedReader ;
 
@@ -56,13 +58,31 @@ public class SocketInterfaceImp implements SocketInterface {
 		// return null;
 	}
 
+	@Override
+	public InputStream getSocketInputStream() {
+		// TODO Auto-generated method stub
+		
+		try {
+			inputStream = socket.getInputStream() ;
+			Log.i(TAG, "获取输入流成功") ;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			Log.i(TAG, "获取输入流失败") ;
+			e.printStackTrace();
+		}
+		
+		return inputStream;
+	}
+	
+	/*
+	
 	// 获得服务器返回的验证消息
 	@Override
 	public String getServerVerifyMSG() {
 		// TODO Auto-generated method stub
 
 		try {
-			bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())) ;
+			bufferedReader = new BufferedReader(new InputStreamReader(inputStream)) ;
 			verifyMessage = bufferedReader.readLine() ;
 //			verifyMessage = socket.getInputStream().toString();
 			Log.i(TAG, verifyMessage) ;
@@ -123,6 +143,8 @@ public class SocketInterfaceImp implements SocketInterface {
 		}
 
 	}
+	
+	*/
 
 	@Override
 	public OutputStream getSocketOutPutStream() {
@@ -138,5 +160,7 @@ public class SocketInterfaceImp implements SocketInterface {
 		
 		return outPutStream;
 	}
+
+	
 
 }

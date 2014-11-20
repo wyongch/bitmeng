@@ -16,5 +16,18 @@
         android:textSize="22sp"
         android:textColor="#fff" 
         />
+    
+      <Button
+        android:id="@+id/startBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp"
+        android:text="开始"
+        android:textSize="18sp"
+        android:textColor="#fff"      
+		android:layout_gravity="center_vertical"
+		android:onClick="startbutton"/>
 
 </RelativeLayout>

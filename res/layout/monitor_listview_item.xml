@@ -15,10 +15,16 @@
         android:scaleType="fitXY"/>
     <TextView 
         android:layout_marginLeft="6dp"
-        android:id="@+id/monitor_listview_item_tv"
-        android:layout_width="fill_parent"
+        android:id="@+id/monitor_listview_item_tv"        
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/monitor_listview_item_img"/>
+     <TextView 
+        android:layout_marginLeft="6dp"
+        android:id="@+id/monitor_listview_item_tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/monitor_listview_item_tv"/>
     <ImageButton 
         android:id="@+id/monitor_listview_item_right_img"
         android:layout_width="wrap_content"

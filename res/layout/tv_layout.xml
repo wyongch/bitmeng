@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
+   
     <TextView
          	android:id="@+id/tv_top_title"
             android:layout_width="match_parent"
@@ -25,6 +26,7 @@
             android:layout_height="80dp"
             >
             <ImageButton 
+                android:id="@+id/tv_btn_power"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_centerVertical="true"
@@ -32,12 +34,14 @@
                 android:src="@drawable/tv_power"
                 android:background="#0000"/>
             <ImageButton 
+                 
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_centerInParent="true"
                 android:background="#0000"
                 android:scaleType="fitXY"/>
             <ImageButton 
+                 android:id="@+id/tv_btn_mode"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentRight="true"
@@ -65,12 +69,14 @@
                     android:src="@drawable/bg_ch"
                     android:scaleType="fitXY"/>
                 <ImageButton 
+                     android:id="@+id/tv_btn_program_increase"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="#0000"
                     android:scaleType="fitXY"                  
                     android:src="@drawable/up_wifi"/>
                 <ImageButton 
+                     android:id="@+id/tv_btn_program_reduce"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="#0000"
@@ -146,6 +152,7 @@
                     android:scaleType="fitXY"/>
                 
                 <ImageButton 
+                    android:id="@+id/tv_voice_increase"
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
@@ -154,6 +161,7 @@
                     android:src="@drawable/up_wifi" />
                 
                 <ImageButton 
+                    android:id="@+id/tv_voice_reduce"
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
@@ -190,6 +198,7 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/tv_information"/>
             <ImageButton 
+                android:id="@+id/tv_voice_silence"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="#0000"
@@ -230,6 +239,7 @@
                 android:layout_alignParentRight="true"
                 android:src="@drawable/tv_custom"/>
              <ImageButton 
+                 android:id="@+id/tv_btn_quit"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="#0000"

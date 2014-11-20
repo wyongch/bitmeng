@@ -106,7 +106,12 @@
            
         </activity>
         
-        
+        <activity 
+            android:name="com.young.frame.Switch16Activity"></activity>
+        <activity 
+            android:name="com.young.frame.AddDeviceActivity"></activity>
+        <activity
+            android:name="com.young.frame.Switch1Activity"></activity>
 
         <service android:name="com.ipcamer.demo.BridgeService" >   </service>     
         
