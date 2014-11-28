@@ -9,7 +9,10 @@
 <!--     fragment_index 中scenes的imagebutton的颜色参数 -->
     <color name="index_scenes_imagebutton_background">#FFFFFF</color>
     
-    
-    
+    <!-- 	tv_layout_up.xml -->
+    <color name="tv_layoutup_topRowOne_btn_background">#0000</color>
+	<color name="tv_layoutup_topRowTwo_btn_background">#0000</color>
+	
+	<color name="tv_layoutup_foot_btn_background">#0000</color>
     
 </resources>

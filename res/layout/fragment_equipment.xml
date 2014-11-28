@@ -22,28 +22,29 @@
         android:layout_alignParentTop="true"
         android:paddingTop="2dp"
         android:gravity="center"
+        android:background="#019ef5"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="设备"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="25sp" />             
     </LinearLayout>
     
-    
-    <GridView 
+    <GridView
         android:id="@+id/equipment_gv_device"
-        android:layout_below="@+id/title"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnWidth="150dp"
-        android:stretchMode="columnWidth"
-        android:numColumns="auto_fit"
-       
+        android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        
+        
         android:gravity="center"
-        android:layout_marginTop="20dp">"
+        android:numColumns="2"
+        android:stretchMode="columnWidth" >
+
 <!--          android:verticalSpacing="10dp" -->
 <!--         android:horizontalSpacing="10dp" -->
         

@@ -18,7 +18,7 @@ import android.widget.SimpleAdapter;
 import com.young.frame.AirControlActivity;
 import com.young.frame.R;
 import com.young.frame.Switch4Activity;
-import com.young.frame.TVActivity;
+import com.young.frame.TVActivityUp;
 
 public class Fragment4 extends Fragment {
 
@@ -70,7 +70,7 @@ public class Fragment4 extends Fragment {
 				break;
 				
 			case 1 :
-				getActivity().startActivity(new Intent(getActivity() , TVActivity.class));
+				getActivity().startActivity(new Intent(getActivity() , TVActivityUp.class));
 				break ;
 				
 			case 2 :

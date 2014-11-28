@@ -3,9 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/switch_activity_bg"
-    android:gravity="center" >
+     >
     
-    <ToggleButton 
+    <LinearLayout
+        android:id="@+id/switch16_activity_title"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:paddingTop="2dp"
+        android:gravity="center"
+        android:background="#019ef5"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="四键开关"
+            android:textColor="#fff"
+            android:textSize="25sp" />             
+    </LinearLayout>
+    
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        
+        <ToggleButton 
         android:id="@+id/switch4_one"        
         android:layout_width="@dimen/switch4_activity_switch_width"
         android:layout_height="@dimen/switch4_activity_switch_height"
@@ -42,6 +64,10 @@
         android:textOn=""
         android:textOff=""
         android:background="@drawable/switch4_toggle_selector"/>
+        
+    </RelativeLayout>
+    
+    
     
 
 </RelativeLayout>

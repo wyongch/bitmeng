@@ -53,6 +53,21 @@
        <TextView android:layout_width="0dp"
            android:layout_height="0dp"
            android:layout_weight="1"/>
+
+       <Button
+           android:id="@+id/testButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginRight="40dp"
+           android:background="@drawable/login_activity_button_rounded_bg"
+           android:paddingBottom="10dp"
+           android:paddingLeft="15dp"
+           android:paddingRight="15dp"
+           android:paddingTop="10dp"
+           android:src="@drawable/login"
+           android:text="调试"
+           android:textColor="#fff"
+           android:textSize="24sp" />
        
         <Button 
             android:id="@+id/loginButton"

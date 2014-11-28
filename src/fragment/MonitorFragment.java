@@ -19,6 +19,7 @@ import com.wayland.global.Command;
 import com.young.frame.LoginActivity;
 import com.young.frame.R;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,6 +37,7 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.TabHost.TabSpec;
 
+@SuppressLint("SimpleDateFormat")
 public class MonitorFragment extends Fragment {
 
 	private static final String TAG = "MONITORFRAGMENT";
@@ -46,7 +48,7 @@ public class MonitorFragment extends Fragment {
 	private HashMap<String, Object> adapter_map;
 	private MyAdapter myAdapter;
 	//infrared
-	private String strInfraredName[] = { "人体红外探测1", "人体红外探测1", "人体红外探测1", "人体红外探测1" };
+	private String strInfraredName[] = { "人体红外探测 1", "人体红外探测 2", "人体红外探测 3", "人体红外探测 4" };
 	private int intCameraImg[] = { R.drawable.monitor_infrared_ico,
 			R.drawable.monitor_infrared_ico, R.drawable.monitor_infrared_ico,
 			R.drawable.monitor_infrared_ico, };
@@ -64,7 +66,7 @@ public class MonitorFragment extends Fragment {
 	private ListView smoke_list ;
 	private MyAdapter mySmokeAdapter;
 	private List<HashMap<String, Object>> smoke_adapter_list ;
-	private String strSmokeName[] = { "烟感探测1", "烟感探测1", "烟感探测1", "烟感探测1" };
+	private String strSmokeName[] = { "危险气体检测 1", "危险气体检测 2", "危险气体检测 3", "危险气体检测 4" };
 	private int intSmokeImg[] = { R.drawable.monitor_smoke_ico,
 			R.drawable.monitor_smoke_ico, R.drawable.monitor_smoke_ico,
 			R.drawable.monitor_smoke_ico, };
@@ -73,77 +75,21 @@ public class MonitorFragment extends Fragment {
 			R.drawable.monitor_infrared_ico_right,
 			R.drawable.monitor_infrared_ico_right };
 	
-	private String []mInputMessage={"","", "", "" };		
+	private String []mInfraredInputMessage={"","", "", "" };		
+	private String []mSmokeInputMessage={"","", "", "" };
 	private StringBuffer mOutputMessage ;
 	private String mInputMessage2 ;
-//	private BufferedReader mBufferedReader ;
-//	private InputStreamReader inputReader ;
-//	private String str = null;
-
-//	private InputStream mInputStream ;
-//	private OutputStream mOutputStream ;
 	private String messageString_user = "" ;
 //	private String SensorStatus = "" ;
-	private String[] SensorStatus = {"","","",""} ;
+	private String[] SmokeSensorStatus = {"","","",""} ;
+	private String[] InfraredSensorStatus = {"","","",""} ;
 	private Date mDate ;
+	private String dateString="";
 
-	
-	//解析传感器当前状态
-	private static byte Msg_Dev_Sensor_Decode (String _mInputMsg){
-		byte DevSensorState = 0x00 ;
-		DevSensorState = (_mInputMsg.getBytes())[Command.Dev_Sensor_State_Pos];
-		  return DevSensorState ;
-		}
-		
-//		_mInputBuffer.toString().getBytes();
-		
-		
-		
-//	}
-	
-	//传感器状态刷新
-	private static String Dev_SensorState_Refresh (String _mInputMsg){
-		String SensorState = null  ;
-		if(_mInputMsg.length()>Command.Dev_Sensor_State_Pos){
-		byte DevState = Msg_Dev_Sensor_Decode(_mInputMsg); //解析传感器当前状态	
-		if(DevState == Command.FeadBack_Invalid){
-			Log.i(TAG, "Sensor_Human_Invalid_Msg") ;
-			SensorState = Command.Sensor_Human_Invalid_Msg ;
-			}
-			else if(DevState == Command.FeadBack_Effective){
-				Log.i(TAG, "Sensor_Human_Effective_Msg") ;
-				SensorState = Command.Sensor_Human_Effective_Msg ;
-			}				
-
-		}
-		  return SensorState ;
-		}	
 	private static void showMonitorStatus (int _monitorId , char _monitorStatus){
 		
-		
-		
-		
-//		switch (key) {
-//		case value:
-//			
-//			break;
-//
-//		default:
-//			break;
-//		}
-//		
-//		if(_monitorStatus == '0'){
-//			Log.i(TAG, "Sensor_Human_Invalid_Msg") ;
-//			SensorStatus = Command.Sensor_Human_Invalid_Msg ;
-//		}
-//		else if(_monitorStatus == '1'){
-//			Log.i(TAG, "Sensor_Human_Effective_Msg") ;
-//			SensorStatus = Command.Sensor_Human_Effective_Msg ;
-//		}
-		
 	}
-	
-	
+		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -152,10 +98,6 @@ public class MonitorFragment extends Fragment {
 		LayoutInflater layoutInflater = getActivity().getLayoutInflater();
 		monitorView = layoutInflater.inflate(R.layout.fragment_monitor1, null);
 
-		LoginActivity loginActivity = new LoginActivity() ;
-//		WeakReference refer = new WeakReference(loginActivity) ;
-		WeakReference  refer = new WeakReference(loginActivity) ;
-		
 		TabHost tabHost = (TabHost) monitorView
 				.findViewById(R.id.monitor_tabhost);
 		tabHost.setup(); // 实例化了tabWidget和tabContent
@@ -167,7 +109,7 @@ public class MonitorFragment extends Fragment {
 				.setIndicator("人体红外检测" )
 				.setContent(R.id.monitor_infrared_list);
 		TabSpec space_smoke = tabHost.newTabSpec("smoke")
-				.setIndicator("烟感探测器")
+				.setIndicator("危险气体检测")
 				.setContent(R.id.monitor_smoke_list);
 //		tabHost.addTab(space_camera);
 		tabHost.addTab(space_infrared);
@@ -182,25 +124,17 @@ public class MonitorFragment extends Fragment {
 		// return super.onCreateView(inflater, container, savedInstanceState);
 		// 获得父类中的viewGroup，当已经存在的时候需要移除，否在在切换Fragment的时候会出现异常
 		mDate = new Date() ;
-		 SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");  
+		 SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
 		 String formatTime = format1.format(mDate) ;
-		String dateString = formatTime ;
-		Log.i(TAG, "moniforFragment onCreadView");
-//		LoginActivity loginActivity = new LoginActivity() ;
-//		WeakReference  refer = new WeakReference(loginActivity) ;
-//		mInputMessage = ((LoginActivity)refer.get()).getInputMessage(Command.Dev_Type_IR_byte,Command.DEV_Sensor_Human0_ID);
-		LoginActivity loginActivity = new LoginActivity() ;
-		WeakReference<LoginActivity>  refer = new WeakReference<LoginActivity>(loginActivity) ;
-		mInputMessage[0] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.DEV_Sensor_Human0_ID);
-		mInputMessage[1] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.DEV_Sensor_Human1_ID);
-		mInputMessage[2] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.DEV_Sensor_Human2_ID);
-		mInputMessage[3] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.DEV_Sensor_Human3_ID);	
+		 dateString = formatTime ;
+//		Log.i(TAG, "moniforFragment onCreadView");
+	
 		//		Log.i(TAG, "this is in onCreatView mInputMessage2" + mInputMessage2.toString()) ;
 
-		Log.i(TAG, "this is in onCreatView mInputMessage:" + mInputMessage[0]) ;
+		Log.i(TAG, "this is in onCreatView mInputMessage:" + mInfraredInputMessage[0]) ;
 		
 //		Log.i(TAG,"this is in onCreatView mInputMessage" + mInputMessage.toString()) ;
-		Log.i(TAG, "call moniforFragment onCreadView");
+//		Log.i(TAG, "call moniforFragment onCreadView");
 
 		
 		
@@ -209,11 +143,11 @@ public class MonitorFragment extends Fragment {
 		if (p != null) {
 			p.removeAllViewsInLayout();
 		}
-		
-		for(int i = 0; i < mInputMessage.length; i++){
-			SensorStatus[i]=Dev_SensorState_Refresh(mInputMessage[i]);	//传感器状态刷新
-		}
-		
+	
+		/**
+		 * 启动监控摄像头
+		 * 
+		 */
 		monitor_IpCamera = (ImageButton) monitorView
 				.findViewById(R.id.monitor_btn_camera);
 		monitor_IpCamera.setOnClickListener(new OnClickListener() {
@@ -233,33 +167,11 @@ public class MonitorFragment extends Fragment {
 		
 		//红外测试数据
 		adapter_list = new ArrayList<HashMap<String, Object>>();
-
-		for (int i = 0; i < intCameraImg.length; i++) {
-			adapter_map = new HashMap<String, Object>();
-			adapter_map.put("id", i) ;
-			adapter_map.put("cameraImg", intCameraImg[i]);
-			adapter_map.put("cameraName", strInfraredName[i]);
-			adapter_map.put("cameraStatus", SensorStatus[i] + dateString) ;
-			adapter_map.put("cameraImgRight", intCameraImgRight[i]);
-			adapter_list.add(adapter_map);
-		
-		}
-		
 		//烟感数据链表
 		smoke_adapter_list = new ArrayList<HashMap<String, Object>>();
-
-		for (int i = 0; i < intCameraImg.length; i++) {
-			HashMap<String, Object> smoke_map = new HashMap<String, Object>();
-			smoke_map.put("smoke_id", i) ;
-			smoke_map.put("intSmokeImg", intSmokeImg[i]);
-			smoke_map.put("strSmokeName", strSmokeName[i]);
-			smoke_map.put("smokeStatus", SensorStatus + dateString) ;
-			smoke_map.put("intSmokeImgRight", intSmokeImgRight[i]);
-			smoke_adapter_list.add(smoke_map);
+		Sensor_InputMessage();
+		Sensor_Refresh_State ();
 		
-		}
-			
-
 		//红外Adapter
 		infraredAdapter = new SimpleAdapter(getActivity(), adapter_list,
 				R.layout.monitor_listview_item, new String[] { "cameraImg",
@@ -291,5 +203,101 @@ public class MonitorFragment extends Fragment {
 		
 		return monitorView;
 	}
+
+	
+	/**
+	 *从后台获取监测信息
+	 * 
+	 */
+	private void Sensor_InputMessage(){
+		Log.i(TAG, "this is Sensor_InputMessage:" + mInfraredInputMessage[0]) ;
+		mInfraredInputMessage[0] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Human0_ID);
+		mInfraredInputMessage[1] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Human1_ID);
+		mInfraredInputMessage[2] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Human2_ID);
+		mInfraredInputMessage[3] = LoginActivity.getInputMessage(Command.Dev_Type_IR_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Human3_ID);
+		mSmokeInputMessage[0] = LoginActivity.getInputMessage(Command.Dev_Type_Gas_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Smoke0_ID);
+		mSmokeInputMessage[1] = LoginActivity.getInputMessage(Command.Dev_Type_Gas_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Smoke1_ID);
+		mSmokeInputMessage[2] = LoginActivity.getInputMessage(Command.Dev_Type_Gas_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Smoke2_ID);
+		mSmokeInputMessage[3] = LoginActivity.getInputMessage(Command.Dev_Type_Gas_byte,Command.Cmd_Ctr_Object_N1_byte,Command.DEV_Sensor_Smoke3_ID);		
+	}
+	/**
+	 *根据传感器状态信息刷新监测界面视图
+	 * 
+	 */
+	private void Sensor_Refresh_State (){
+		Log.i(TAG, "Sensor_Refresh_State!!!") ;			
+		for(int i = 0; i < mInfraredInputMessage.length; i++){
+			InfraredSensorStatus[i]=Dev_SensorState_Refresh(Command.Dev_Type_IR_byte,mInfraredInputMessage[i]);	//传感器状态刷新
+		}
+		for(int i = 0; i < mSmokeInputMessage.length; i++){
+			SmokeSensorStatus[i]=Dev_SensorState_Refresh(Command.Dev_Type_Gas_byte,mSmokeInputMessage[i]);	//传感器状态刷新
+		}	
+		for (int i = 0; i < intCameraImg.length; i++) {
+			adapter_map = new HashMap<String, Object>();
+			adapter_map.put("id", i) ;
+			adapter_map.put("cameraImg", intCameraImg[i]);
+			adapter_map.put("cameraName", strInfraredName[i]);
+			adapter_map.put("cameraStatus", InfraredSensorStatus[i] +"\n\r"+ dateString) ;
+			adapter_map.put("cameraImgRight", intCameraImgRight[i]);
+			adapter_list.add(adapter_map);
+		
+			
+			HashMap<String, Object> smoke_map = new HashMap<String, Object>();
+			smoke_map.put("smoke_id", i) ;
+			smoke_map.put("intSmokeImg", intSmokeImg[i]);
+			smoke_map.put("strSmokeName", strSmokeName[i]);
+			smoke_map.put("smokeStatus", SmokeSensorStatus[i] +"\n\r"+ dateString) ;
+			smoke_map.put("intSmokeImgRight", intSmokeImgRight[i]);
+			smoke_adapter_list.add(smoke_map);	
+		}		
+
+	}
+	
+	//解析传感器当前状态
+	private static byte Msg_Dev_Sensor_Decode (String _mInputMsg){
+		byte DevSensorState = 0x00 ;
+		DevSensorState = (_mInputMsg.getBytes())[Command.Dev_Sensor_State_Pos];
+		  return DevSensorState ;
+		}
+		
+//		_mInputBuffer.toString().getBytes();
+		
+		
+		
+//	}
+	
+	//传感器状态刷新
+	private static String Dev_SensorState_Refresh (byte Dev_Type,String _mInputMsg){
+		String SensorState = null  ;
+		if(_mInputMsg.length()>Command.Dev_Sensor_State_Pos){
+			byte DevState = Msg_Dev_Sensor_Decode(_mInputMsg); //解析传感器当前状态	
+			if(DevState == Command.FeadBack_Invalid){
+				Log.i(TAG, "Sensor_Human_Invalid_Msg") ;
+				switch(Dev_Type){
+					case Command.Dev_Type_IR_byte:
+						SensorState = Command.Sensor_Human_Invalid_Msg ;					
+						break;
+					case Command.Dev_Type_Gas_byte:
+						SensorState = Command.Sensor_Smoke_Invalid_Msg ;					
+						break;
+					default :
+						break;
+				}
+			}
+			else if(DevState == Command.FeadBack_Effective){
+				switch(Dev_Type){
+				case Command.Dev_Type_IR_byte:
+					SensorState = Command.Sensor_Human_Effective_Msg ;					
+					break;
+				case Command.Dev_Type_Gas_byte:
+					SensorState = Command.Sensor_Smoke_Effective_Msg ;					
+					break;
+				default :
+					break;
+				}
+			}				
+		}
+		return SensorState ;
+	}		
 
 }

@@ -24,57 +24,69 @@
         android:layout_below="@+id/air_top_title"
         >
        
-       	<RelativeLayout 
+       	<RelativeLayout
+       	    android:id="@+id/air_show_info"
        	    android:layout_width="fill_parent"
        	    android:layout_height="fill_parent"
-       	    android:background="#555">
-        
-        <ImageButton 
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="#0000"
-            android:scaleType="fitXY"
-            android:src="@drawable/wind_amount_black_five"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"/>
-        <ImageButton 
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="#0000"
-            android:scaleType="fitXY"
-            android:src="@drawable/img_air_direction_mid"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"/>
-        <ImageView 
-            android:id="@+id/vi_current_temp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#0000"
-            android:scaleType="fitXY"
-            android:src="@drawable/img_temp_21"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="50dp"/>
-        <TextView 
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:text="℃"
-            android:textStyle="italic"
-            android:layout_toRightOf="@+id/vi_current_temp"
-            android:layout_alignTop="@+id/vi_current_temp"
-             />
-        <ImageButton 
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/mode_warm_white"
-            android:background="#0000"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@+id/vi_current_temp" />
-        
-        </RelativeLayout>
-        
+       	    android:clickable="true" >
+<!--       	    android:background="#555" > -->
+
+       	    <ImageButton
+       	        android:layout_width="25dp"
+       	        android:layout_height="25dp"
+       	        android:layout_marginLeft="20dp"
+       	        android:layout_marginTop="20dp"
+       	        android:background="#0000"
+       	        android:scaleType="fitXY"
+       	        android:src="@drawable/wind_amount_black_five" />
+
+       	    <ImageButton
+       	        android:id="@+id/air_control_show_wind_type"
+       	        android:layout_width="25dp"
+       	        android:layout_height="25dp"
+       	        android:layout_alignParentBottom="true"
+       	        android:layout_marginBottom="20dp"
+       	        android:layout_marginLeft="20dp"
+       	        android:background="#0000"
+       	        android:scaleType="fitXY"
+       	         />
+<!-- android:src=""@drawable/img_air_direction_mid -->
+       	    <ImageView
+       	        android:id="@+id/vi_current_temp"
+       	        android:layout_width="100dp"
+       	        android:layout_height="100dp"
+       	        android:layout_centerVertical="true"
+       	        android:layout_marginLeft="50dp"
+       	        android:background="#0000"
+       	        android:scaleType="fitXY"
+       	        android:src="@drawable/img_temp_21" />
+
+       	    <TextView
+       	        android:layout_width="20dp"
+       	        android:layout_height="20dp"
+       	        android:layout_alignTop="@+id/vi_current_temp"
+       	        android:layout_toRightOf="@+id/vi_current_temp"
+       	        android:text="℃"
+       	        android:textStyle="italic" />
+
+       	    <ImageButton
+       	        android:id="@+id/air_control_show_mode"
+       	        android:layout_width="60dp"
+       	        android:layout_height="60dp"
+       	        android:layout_marginLeft="30dp"
+       	        android:layout_marginTop="20dp"
+       	        android:layout_toRightOf="@+id/vi_current_temp"
+       	        android:background="#0000"
+       	        android:scaleType="fitXY" />
+
+       	    <TextView
+       	        android:id="@+id/air_control_show_set_time"
+       	        android:layout_width="wrap_content"
+       	        android:layout_height="wrap_content"
+       	        android:layout_alignBottom="@+id/air_control_show_wind_type"
+       	        android:layout_alignLeft="@+id/air_control_show_mode"
+       	        android:text="" />
+       	</RelativeLayout>
         
     </RelativeLayout>
     
@@ -129,22 +141,15 @@
     <ImageButton 
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/mode_normal"
+        
         android:layout_alignParentBottom="true"
         android:scaleType="fitXY"
         android:background="#0000"/>
-   
+<!--    android:src="@drawable/mode_normal" -->
+    
     
     <ImageButton 
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/wind_vertical_horizontal_normal"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"        
-        android:background="#0000"
-        />
-    <ImageButton 
+        android:id="@+id/btn_wind_type1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
@@ -157,11 +162,12 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        android:src="@drawable/wind_class_normal"
+       
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"        
         android:background="#0000"
         />
+<!--      android:src="@drawable/wind_class_normal" -->
     </RelativeLayout>
     
     <RelativeLayout 
@@ -188,22 +194,35 @@
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/air_mode_heat"
             android:src="@drawable/air_quick_cool"/>
+        
         <ImageButton 
+            android:id="@+id/air_mode_wind"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#0000"
             android:scaleType="fitXY"
+            android:layout_toLeftOf="@+id/air_control_set_time"
             android:layout_marginRight="20dp"
-            android:layout_toLeftOf="@+id/air_custom"
-            android:src="@drawable/air_time"/>
+            android:src="@drawable/air_quick_wind"/>
+        
         <ImageButton 
-            android:id="@+id/air_custom"
+            android:id="@+id/air_control_set_time"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#0000"
             android:scaleType="fitXY"
+            
             android:layout_alignParentRight="true"
-            android:src="@drawable/air_custom"/>
+            
+            android:src="@drawable/air_time"/>
+<!--         <ImageButton  -->
+<!--             android:id="@+id/air_custom" -->
+<!--             android:layout_width="50dp" -->
+<!--             android:layout_height="50dp" -->
+<!--             android:background="#0000" -->
+<!--             android:scaleType="fitXY" -->
+<!--             android:layout_alignParentRight="true" -->
+<!--             android:src="@drawable/air_custom"/> -->
         
         
         

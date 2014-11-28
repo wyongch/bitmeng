@@ -2,6 +2,9 @@ package com.young.frame;
 
 import java.util.ArrayList;
 
+import com.wayland.global.Command;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,6 +13,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
@@ -21,8 +25,10 @@ import fragment.Fragment3;
 import fragment.Fragment4;
 import fragment.MonitorFragment;
 
+@SuppressWarnings("unused")
 public class MainActivity extends FragmentActivity{
 
+	private static final String TAG = "MAINACTIVITY" ;
 	//可滑动窗口
 	private ViewPager mTabPager;
 	//4个tab页分别使用一个Fragment
@@ -44,8 +50,10 @@ public class MainActivity extends FragmentActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO 自动生成的方法存根
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_activity);
+		setContentView(R.layout.main_activity1);
 		setTheme(0);
+		
+
 		
 		mTabPager = (ViewPager)findViewById(R.id.tabpager);
         mTabPager.setOnPageChangeListener(new MyOnPageChangeListener());
@@ -59,7 +67,7 @@ public class MainActivity extends FragmentActivity{
         tab2 = (LinearLayout) findViewById(R.id.scene);
         tab3 = (LinearLayout) findViewById(R.id.equipment);
         tab4 = (LinearLayout) findViewById(R.id.monitor);
-        //为标签设置事件监听
+        //为标签设置事件监听,切换当前fragment
         tab1.setOnClickListener(new MyOnClickListener(0));
         tab2.setOnClickListener(new MyOnClickListener(1));
         tab3.setOnClickListener(new MyOnClickListener(2));
@@ -84,6 +92,14 @@ public class MainActivity extends FragmentActivity{
 		fragmentList.add(mMonitorFragment);
 		
 		mTabPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(),fragmentList));	
+		Intent intent = getIntent() ;
+		int id = intent.getIntExtra("fragmentId",234);
+		if(id==123){
+			Log.i(TAG, "intent.getIntExtra") ;
+//			mMonitorFragment.setUserVisibleHint(true);
+			mTabPager.setCurrentItem(Command.mMonitorFragment_pos);
+			
+		}
 	}
 	/**
 	 * 
@@ -129,6 +145,7 @@ public class MainActivity extends FragmentActivity{
 
 		public MyOnClickListener(int i) {
 			index = i;
+			Log.i(TAG, "当前fragment"+i) ;
 		}
 		@Override
 		public void onClick(View v) {
@@ -148,44 +165,42 @@ public class MainActivity extends FragmentActivity{
 				mTab1.setImageDrawable(getResources().getDrawable(R.drawable.home_press));
 				if (currIndex == 1) {
 					mTab2.setImageDrawable(getResources().getDrawable(R.drawable.scene_unpress));
-				} else if (currIndex == 2) {
-					mTab3.setImageDrawable(getResources().getDrawable(R.drawable.monitor_unpress));
-				}
-				else if (currIndex == 3) {
-					mTab4.setImageDrawable(getResources().getDrawable(R.drawable.equipment_unpress));
+				}else if (currIndex == 2) {
+					mTab3.setImageDrawable(getResources().getDrawable(R.drawable.equipment_unpress));
+					
+				}else if (currIndex == 3) {
+					mTab4.setImageDrawable(getResources().getDrawable(R.drawable.monitor_unpress));
 				}
 				break;
 			case 1:
 				mTab2.setImageDrawable(getResources().getDrawable(R.drawable.scene_press));
 				if (currIndex == 0) {
 					mTab1.setImageDrawable(getResources().getDrawable(R.drawable.home_unpress));
-				} else if (currIndex == 2) {
-					mTab3.setImageDrawable(getResources().getDrawable(R.drawable.monitor_unpress));
-				}
-				else if (currIndex == 3) {
-					mTab4.setImageDrawable(getResources().getDrawable(R.drawable.equipment_unpress));
+				}else if (currIndex == 2) {
+					mTab3.setImageDrawable(getResources().getDrawable(R.drawable.equipment_unpress));
+				}else if (currIndex == 3) {
+					mTab4.setImageDrawable(getResources().getDrawable(R.drawable.monitor_unpress));
+					
 				}
 				break;
 			case 2:
-				mTab3.setImageDrawable(getResources().getDrawable(R.drawable.monitor_press));
+				mTab3.setImageDrawable(getResources().getDrawable(R.drawable.equipment_press));
 				if (currIndex == 0) {
 					mTab1.setImageDrawable(getResources().getDrawable(R.drawable.home_unpress));
-				} else if (currIndex == 1) {
+				}else if (currIndex == 1) {
 					mTab2.setImageDrawable(getResources().getDrawable(R.drawable.scene_unpress));
-				}
-				else if (currIndex == 3) {
-					mTab4.setImageDrawable(getResources().getDrawable(R.drawable.equipment_unpress));
+				}else if (currIndex == 3) {
+					mTab4.setImageDrawable(getResources().getDrawable(R.drawable.monitor_unpress));
 				}
 				break;
 			case 3:
-				mTab4.setImageDrawable(getResources().getDrawable(R.drawable.equipment_press));
+				mTab4.setImageDrawable(getResources().getDrawable(R.drawable.monitor_press));
 				if (currIndex == 0) {
 					mTab1.setImageDrawable(getResources().getDrawable(R.drawable.home_unpress));
-				} else if (currIndex == 1) {
+				}else if (currIndex == 1) {
 					mTab2.setImageDrawable(getResources().getDrawable(R.drawable.scene_unpress));
-				}
-				else if (currIndex == 2) {
-					mTab3.setImageDrawable(getResources().getDrawable(R.drawable.monitor_unpress));
+				}else if (currIndex == 2) {
+					mTab3.setImageDrawable(getResources().getDrawable(R.drawable.equipment_unpress));
 				}
 				break;
 			}

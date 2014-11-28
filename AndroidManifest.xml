@@ -112,6 +112,14 @@
             android:name="com.young.frame.AddDeviceActivity"></activity>
         <activity
             android:name="com.young.frame.Switch1Activity"></activity>
+        <activity 
+            android:name="com.young.frame.AddScenesActivity"></activity>
+        <activity 
+            android:name="com.young.frame.AddScenesControlActivity"></activity>
+        <activity 
+            android:name="com.young.frame.SettingScenesActivity"></activity>
+        <activity 
+            android:name="com.young.frame.TVActivityUp"></activity>
 
         <service android:name="com.ipcamer.demo.BridgeService" >   </service>     
         

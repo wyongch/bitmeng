@@ -74,6 +74,10 @@ public class SocketInterfaceImp implements SocketInterface {
 		return inputStream;
 	}
 	
+	public Socket getSocket(){
+		return socket ;
+	}
+	
 	/*
 	
 	// 获得服务器返回的验证消息

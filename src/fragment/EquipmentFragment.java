@@ -8,7 +8,7 @@ import com.young.frame.R;
 import com.young.frame.Switch16Activity;
 import com.young.frame.Switch1Activity;
 import com.young.frame.Switch4Activity;
-import com.young.frame.TVActivity;
+import com.young.frame.TVActivityUp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +27,7 @@ public class EquipmentFragment extends Fragment {
 	private GridView gridView ;
 	private MyAdapter myAdapter ;
 	private int equipmentImgId[] ={R.drawable.equipment_air_control, R.drawable.equipment_tv_control,R.drawable.equipment_switch_one,R.drawable.equipment_switch_four,R.drawable.equipment_switch_sixteen,R.drawable.equipment_device_add} ;
-	private String equipmentText[] ={"空调要控器" , "电视遥控器" , "一键开关" , "四健开关" ,"十六健开关" ,"添加"} ;
+	private String equipmentText[] ={"空调遥控器" , "电视遥控器" , "一键开关" , "四健开关" ,"十六健开关" ,"添加"} ;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class EquipmentFragment extends Fragment {
 					break;
 					
 				case 1 :
-					getActivity().startActivity(new Intent(getActivity() , TVActivity.class));
+					getActivity().startActivity(new Intent(getActivity() , TVActivityUp.class));
 					break ;
 					
 				case 2 :
